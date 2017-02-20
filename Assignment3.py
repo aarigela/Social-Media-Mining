@@ -138,12 +138,17 @@ def extract_hashtags(tweet):
         list: A list, possibly empty, containing hashtags.
 
     """
-    # YOUR CODE HERE
+    
+    results = []
+    lst = tweet.split(' ')
 
-    lst = tweet.split(' ');
-    result = [li for li in lst if li.startswith('#') and len(li) > 1];
+    for token in lst:
+        if token.startswith('#'):
+            if not (len(token) == 2 and token[1].isdigit()):
+                results.append(token)
 
-    return result
+    return results
+
 
 def extract_mentions(tweet):
     """Extract @mentions from a string.
